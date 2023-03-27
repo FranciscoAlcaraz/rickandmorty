@@ -18,10 +18,10 @@
         android:theme="@style/Theme.RickAndMortyCharacterListApp"
         tools:targetApi="31">
         <activity
-            android:name=".ui.theme.view.activity.characterdetail.CharacterDetailActivity"
+            android:name=".ui.view.activity.characterdetail.CharacterDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.theme.view.activity.MainActivity"
+            android:name=".ui.view.activity.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.RickAndMortyCharacterListApp">

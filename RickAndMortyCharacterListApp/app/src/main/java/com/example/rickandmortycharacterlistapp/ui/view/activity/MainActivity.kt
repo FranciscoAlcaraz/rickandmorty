@@ -1,4 +1,4 @@
-package com.example.rickandmortycharacterlistapp.ui.theme.view.activity
+package com.example.rickandmortycharacterlistapp.ui.view.activity
 
 import android.os.Bundle
 import android.widget.Toast
@@ -9,7 +9,6 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
@@ -38,8 +37,9 @@ import coil.size.Scale
 import coil.transform.CircleCropTransformation
 import com.example.rickandmortycharacterlistapp.R
 import com.example.rickandmortycharacterlistapp.domain.model.Character
+import com.example.rickandmortycharacterlistapp.framework.OnBottomReached
 import com.example.rickandmortycharacterlistapp.ui.theme.RickAndMortyCharacterListAppTheme
-import com.example.rickandmortycharacterlistapp.ui.theme.view.activity.characterdetail.CharacterDetailActivity
+import com.example.rickandmortycharacterlistapp.ui.view.activity.characterdetail.CharacterDetailActivity
 import com.example.rickandmortycharacterlistapp.viewmodel.view.characterlist.CharacterListViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -294,23 +294,5 @@ class MainActivity : ComponentActivity() {
                 )
             )
         }
-    }
-}
-
-@Composable
-fun LazyListState.OnBottomReached(
-    loadMore: () -> Unit
-) {
-    val shouldLoadMore = remember {
-        derivedStateOf {
-            val lastVisibleItem = layoutInfo.visibleItemsInfo.lastOrNull()
-                ?: return@derivedStateOf true
-
-            lastVisibleItem.index == layoutInfo.totalItemsCount - 1
-        }
-    }
-
-    LaunchedEffect(shouldLoadMore) {
-        snapshotFlow { shouldLoadMore.value }.collect { if (it) loadMore() }
     }
 }

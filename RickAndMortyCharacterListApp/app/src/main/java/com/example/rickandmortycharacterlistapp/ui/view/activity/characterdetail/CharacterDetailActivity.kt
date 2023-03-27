@@ -1,4 +1,4 @@
-package com.example.rickandmortycharacterlistapp.ui.theme.view.activity.characterdetail
+package com.example.rickandmortycharacterlistapp.ui.view.activity.characterdetail
 
 import android.content.Context
 import android.content.Intent
