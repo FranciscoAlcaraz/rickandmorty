@@ -44,7 +44,7 @@ import com.example.rickandmortycharacterlistapp.viewmodel.view.characterlist.Cha
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MainActivity : ComponentActivity() {
+class CharacterListActivity : ComponentActivity() {
 
     private val viewModel: CharacterListViewModel by viewModels()
 
@@ -63,7 +63,7 @@ class MainActivity : ComponentActivity() {
     private fun observeData() {
         viewModel.showError.observe(this) {
             Toast.makeText(
-                this@MainActivity,
+                this@CharacterListActivity,
                 getString(R.string.generic_error),
                 Toast.LENGTH_SHORT
             ).show()
